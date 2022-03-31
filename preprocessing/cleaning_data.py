@@ -12,7 +12,7 @@ def preprocess(data):
   clean_data = {}
 
 #check valid input & convert in data for model for Bedrooms
-  if data["rooms-number"] == int:
+  if type(data["rooms-number"]) == int:
     clean_data["Bedrooms"] = data["rooms-number"]
   else:
     print("you need to input an int") #check how to return this to user
