@@ -29,6 +29,7 @@ Y = nparr[target].values
 regressor = LinearRegression().fit(X, Y)
 print(regressor.score(X, Y))
 
-filename = "trained model.pickle"
+#create pickle file of trained model
+filename = "trained_model.pickle"
 pickle.dump(regressor, open(filename, "wb"))
 

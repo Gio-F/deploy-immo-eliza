@@ -3,68 +3,47 @@
 # If your data doesn't contain the required information, you should return an error to the user.
 
 
-#load pickel
-#from json file in the POST req
-# ```json
-{
-  "data": {
-    "rooms-number": int,
-    "equipped-kitchen": Optional[bool],
-    "building-state": Optional[
-      "NEW" | "GOOD" | "TO RENOVATE" | "JUST RENOVATED" | "TO REBUILD"
-    ]
-  }
-}
-# ```
-#     nparr = [ 
-#  'Building condition',
-#  'Kitchen type',
-#  'Bedrooms']
-
- {
-#   "data": {
-#     "rooms-number": int, 'Bedrooms'
-#     "equipped-kitchen": Optional[bool], 'Kitchen type'
-#     "building-state": Optional[
-#       "NEW" | "GOOD" | "TO RENOVATE" | "JUST RENOVATED" | "TO REBUILD"
-#     ], 'Building condition'
-#   }
-
-
-
-# Kit_type_dict = {"USA uninstalled" : 0, 
-#                  "Not installed" : 0, 
-#                  "Installed": 1, 
-#                  "USA installed": 1,
-#                  "Semi equipped": 1,
-#                  "USA semi equipped": 1,
-#                  "Hyper equipped": 2,
-#                  "USA hyper equipped": 2
-#                 }
-
-# df = df.replace(Kit_type_dict)
-# df["Kitchen type"] = df["Kitchen type"].fillna(0)
-
-# """ building_condition_map = {'As new': 6, 'Just renovated': 5, 'Good': 4, 'To be done up': 3, 'To renovate':2, 'To restore':1}
-# df = df.applymap(lambda s: building_condition_map.get(s) if s in building_condition_map else s)
-
-# df['Building condition'].isnull().sum() """
-
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-import requests
-
 def preprocess(data):
-    if "rooms-number" != int:
-        print("you need to input an int")
 
-    
-    
+  clean_data = {}
 
-    return clean_data
+#check valid input & convert in data for model for Bedrooms
+  if data["rooms-number"] == int:
+    clean_data["Bedrooms"] = data["rooms-number"]
+  else:
+    print("you need to input an int") #check how to return this to user
 
-    
+#check valid input & convert in data for model for Kitchen type
+
+  if data["equipped-kitchen"] == True:
+    clean_data['Kitchen type'] = 1
+  elif data["equipped-kitchen"] == False:
+    clean_data['Kitchen type'] = 0
+  else:
+    print("you need to input true or false")
+
+#check valid input & convert in data for model for Building condition
+
+  if data["building-state"] == "NEW":
+    clean_data['Building condition'] = 6
+  elif data["building-state"] == "GOOD":
+    clean_data['Building condition'] = 4
+  elif data["building-state"] == "TO RENOVATE":
+    clean_data['Building condition'] = 3
+  elif data["building-state"] == "JUST RENOVATED":
+    clean_data['Building condition'] = 5
+  elif data["building-state"] == "TO REBUILD":
+    clean_data['Building condition'] = 1
+  else:
+    print("""Please input one of the values from the following list, in capital letters:
+    NEW
+    GOOD
+    TO RENOVATE
+    JUST RENOVATED
+    TO REBUILD""")  
+
+  return clean_data
