@@ -10,12 +10,11 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import pickle
 
-def predict():
+def predict(data):
     #load the pickle
     model = pickle.load(open('model/trained_model.pickle', 'rb'))
-
     # predict
-    prediction = model.predict(X)
+    prediction = model.predict(data)
 
 
     return prediction
