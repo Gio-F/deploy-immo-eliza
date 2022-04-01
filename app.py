@@ -38,6 +38,8 @@ def user_input():
     #  }
     #the above is sent to preprocessing/cleaning data and give dict
     clean_data = preprocess(data)
+    if clean_data #contains key error:
+        return jsonify(f"{clean_data['error']}")
     
     # transform dict into dataframe so they
     # can be fed to the model in the right shape
@@ -48,7 +50,7 @@ def user_input():
     prediction = predict(clean_dataframe)
 
     #API returns prediction
-    return jsonify (f"Prediction is {prediction}")
+    return jsonify(f"Prediction is {prediction}")
 
 if __name__ == "__main__":
     port = os.environ.get("PORT", 5000)

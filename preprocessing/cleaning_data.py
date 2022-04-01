@@ -24,7 +24,7 @@ def preprocess(data):
   elif data["equipped-kitchen"] == False:
     clean_data['Kitchen type'] = 0
   else:
-    print("you need to input true or false")
+    clean_data["error"] = "you need to input true or false"
 
 #check valid input & convert in data for model for Building condition
 
