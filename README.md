@@ -26,7 +26,7 @@ We deployed the container for the web applications *"app-im-el"* on [Heroku](htt
  
  -  GET  https://app-im-el.herokuapp.com/predict : Returns a string to the user explaining the values format required for the prediction.
 
-Example: ""rooms-number": int, "equipped-kitchen": Optional[bool], "building-state": Optional["NEW" | "GOOD" | "TO RENOVATE" | "JUST RENOVATED" | "TO REBUILD"] "
+>"rooms-number": int, "equipped-kitchen": Optional[bool], "building-state": Optional["NEW" | "GOOD" | "TO RENOVATE" | "JUST RENOVATED" | "TO REBUILD"] 
 
 
  -  POST https://app-im-el.herokuapp.com/predict : Receives the data of a house in JSON format
