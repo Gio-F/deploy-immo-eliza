@@ -1,14 +1,16 @@
 # deploy-immo-eliza
 
+In app.py we used Flask API to build a REST API. 
+
+The API checks the status of the server and returns predictions of house pricing based on the output of the trained regression model available in the "Predict" folder.
+
+The original regression model and its training data are available in the "model" folder.
+
+The function available in the "preprocessing" folder transforms the data received via the API in the correct format to be fed to the prediction model available in the "Predict" folder.
 
 From the file app.py we created a docker image. 
+
 We deployed the container for the web applications "app-im-el" on Heroku.
-
-contains a create a clear README to explain where your API is hosted and how to interact with it. Don't forget to mention:
-
-- What routes are available? With which methods?
-- What kind of data is expected (How should they be formatted? What is mandatory or not?)
-- What is the output of each route in case of success? What is the output in case of error?
 
 ***Routes available***
 
@@ -27,5 +29,7 @@ Example: ""rooms-number": int, "equipped-kitchen": Optional[bool], "building-sta
          "equipped-kitchen": true,
          "rooms-number": 5
         }```
+        
+ 
 
 
