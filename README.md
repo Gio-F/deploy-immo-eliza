@@ -12,13 +12,14 @@ contains a create a clear README to explain where your API is hosted and how to 
 
 ***Routes available***
 
-   GET  https://app-im-el.herokuapp.com/ 
+ -  GET  https://app-im-el.herokuapp.com/ 
         Return "alive" if the server is alive.
-   GET  https://app-im-el.herokuapp.com/predict
+ -  GET  https://app-im-el.herokuapp.com/predict
         GET request returning a string to explain what the POST expect (data and format).
-   POST https://app-im-el.herokuapp.com/predict
+ -  POST https://app-im-el.herokuapp.com/predict
         POST request that receives the data of a house in JSON format
-        Example:
+  
+  Example:
         ```{
          "building-state": "NEW",
          "equipped-kitchen": true,
