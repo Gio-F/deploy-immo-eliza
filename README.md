@@ -2,15 +2,16 @@
 
 In app.py we used Flask API to build a REST API. 
 
-The API checks the status of the server and returns predictions of house pricing based on the output of the trained regression model available in the "Predict" folder. Alternatively, it'll show an error message if the data format is not the expected one.
+The API checks the status of the server and returns predictions of house pricing based on the output of the trained regression model available in the *"predict"* folder. Alternatively, it'll show an error message if the data format is not the expected one.
 
-The function available in the "preprocessing" folder transforms the user inputs received via the API in the correct format to be fed to the prediction model available in the "Predict" folder. If the values from the user input differs from the expected answers, the program will return an error message, displayed via the API.
+The function available in the *"preprocessing"* folder transforms the user inputs received via the API in the correct format to be fed to the prediction model available in the *"predict"* folder. If the values from the user input differs from the expected answers, the program will return an error message, displayed via the API.
 
-The original regression model and its training data are available in the "model" folder.
+The original regression model and its training data are available in the *"model"* folder.
 
-From the file app.py we created a docker image. 
+From the file app.py we created a [docker](https://www.docker.com/) image.
 
-We deployed the container for the web applications "app-im-el" on Heroku.
+We deployed the container for the web applications *"app-im-el"* on [Heroku](https://www.heroku.com/).
+
 
 ***Routes available***
 
