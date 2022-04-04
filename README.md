@@ -38,6 +38,11 @@ We deployed the container for the web applications *"app-im-el"* on [Heroku](htt
          "rooms-number": 5
         }```
         
+        
+ ### Next steps
+ - increase the number of features used by the prediction model
+ - improve error handling
+        
  
 
 
