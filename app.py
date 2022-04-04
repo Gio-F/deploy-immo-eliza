@@ -29,8 +29,12 @@ def explanation():
 @app.route("/predict", methods = ["POST"])
 def user_input():
 
-    req = request.get_json()
-    data = req["data"]
+    
+    try:
+        req = request.get_json()
+        data = req["data"]
+    except (TypeError, KeyError) as ex:
+        return jsonify(f"something's wrong with your data. Is it json? {ex}")
     # {
     #     "building-state": "NEW",
     #     "equipped-kitchen": true,
@@ -38,16 +42,17 @@ def user_input():
     #  }
     #the above is sent to preprocessing/cleaning data and give dict
     clean_data = preprocess(data)
-    if clean_data #contains key error:
+    #if clean_data #contains key error:
+    if 'error' in clean_data.keys():
         return jsonify(f"{clean_data['error']}")
-    
-    # transform dict into dataframe so they
-    # can be fed to the model in the right shape
-    clean_dataframe = pd.DataFrame([clean_data])
-    #print(clean_dataframe)
-    
-    #clean data fed to model for prediction
-    prediction = predict(clean_dataframe)
+    else:
+        # transform dict into dataframe so they
+        # can be fed to the model in the right shape
+        clean_dataframe = pd.DataFrame([clean_data])
+        #print(clean_dataframe)
+        
+        #clean data fed to model for prediction
+        prediction = predict(clean_dataframe)
 
     #API returns prediction
     return jsonify(f"Prediction is {prediction}")

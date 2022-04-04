@@ -15,7 +15,7 @@ def preprocess(data):
   if type(data["rooms-number"]) == int:
     clean_data["Bedrooms"] = data["rooms-number"]
   else:
-    print("you need to input an int") #check how to return this to user
+    clean_data["error"] = "for rooms-number, you need to input an int" #check how to return this to user
 
 #check valid input & convert in data for model for Kitchen type
 
@@ -24,7 +24,7 @@ def preprocess(data):
   elif data["equipped-kitchen"] == False:
     clean_data['Kitchen type'] = 0
   else:
-    clean_data["error"] = "you need to input true or false"
+    clean_data["error"] = "for equipped-kitchen, you need to input true or false"
 
 #check valid input & convert in data for model for Building condition
 
@@ -39,11 +39,11 @@ def preprocess(data):
   elif data["building-state"] == "TO REBUILD":
     clean_data['Building condition'] = 1
   else:
-    print("""Please input one of the values from the following list, in capital letters:
+    clean_data["error"] = """For building-state Please input one of the values from the following list, in capital letters:
     NEW
     GOOD
     TO RENOVATE
     JUST RENOVATED
-    TO REBUILD""")  
+    TO REBUILD""" 
 
   return clean_data
