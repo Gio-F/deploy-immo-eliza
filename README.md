@@ -15,7 +15,7 @@ contains a create a clear README to explain where your API is hosted and how to 
  -  GET  https://app-im-el.herokuapp.com/ 
         Return "alive" if the server is alive.
  -  GET  https://app-im-el.herokuapp.com/predict
-        GET request returning a string to explain what the POST expect (data and format).
+ Returns a string to the user explaining the data format required for the prediction
  -  POST https://app-im-el.herokuapp.com/predict
         POST request that receives the data of a house in JSON format
   
