@@ -1,5 +1,12 @@
 # deploy-immo-eliza
 
+### Description
+
+This deployment is part of a training project at [BeCode](https://becode.org/). The objective is to deploy a machine learning model using REST API.
+The tools to be used are Flask API, Docker and Heroku.
+
+
+
 In app.py we used Flask API to build a REST API. 
 
 The API checks the status of the server and returns predictions of house pricing based on the output of the trained regression model available in the *"predict"* folder. Alternatively, it'll show an error message if the data format is not the expected one.
@@ -13,7 +20,7 @@ From the file app.py we created a [docker](https://www.docker.com/) image.
 We deployed the container for the web applications *"app-im-el"* on [Heroku](https://www.heroku.com/).
 
 
-***Routes available***
+### Routes available
 
  -  GET  https://app-im-el.herokuapp.com/ : Returns the string "alive" if the server is alive.
  
