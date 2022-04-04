@@ -1,10 +1,28 @@
 # deploy-immo-eliza
 
-create a clear README to explain where your API is hosted and how to interact with it. Don't forget to mention:
+
+From the file app.py we created a docker image. 
+We deployed the container for the web applications "app-im-el" on Heroku.
+
+contains a create a clear README to explain where your API is hosted and how to interact with it. Don't forget to mention:
 
 - What routes are available? With which methods?
-***Routes available***
-"/"
-predict
 - What kind of data is expected (How should they be formatted? What is mandatory or not?)
 - What is the output of each route in case of success? What is the output in case of error?
+
+***Routes available***
+
+   GET  https://app-im-el.herokuapp.com/ 
+        Return "alive" if the server is alive.
+   GET  https://app-im-el.herokuapp.com/predict
+        GET request returning a string to explain what the POST expect (data and format).
+   POST https://app-im-el.herokuapp.com/predict
+        POST request that receives the data of a house in JSON format
+        Example:
+        ```{
+         "building-state": "NEW",
+         "equipped-kitchen": true,
+         "rooms-number": 5
+        }```
+
+
